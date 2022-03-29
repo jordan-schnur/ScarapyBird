@@ -6,6 +6,7 @@ export var camera_speed = 2 #m/2
 
 func _ready():
 	randomize()
+	
 
 func _process(delta):
 	var current_pos = $Camera.translation

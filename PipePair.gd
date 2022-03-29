@@ -2,7 +2,7 @@ extends Node
 
 var pipe_min = -3.716
 var pipe_max = 1.645
-var pipe_offset = 11.023 - pipe_max
+var pipe_offset = 10.023 - pipe_max
 var move_speed = 2 #m/2
 var start_positon = 10
 var hasBeenSeen = false
