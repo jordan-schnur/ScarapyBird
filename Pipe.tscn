@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/models/Pipe.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Pipe.gd" type="Script" id=2]
+
+[sub_resource type="CylinderShape" id=1]
+radius = 1.30042
+height = 6.52722
+
+[sub_resource type="Skin" id=2]
+
+[node name="Pipe" type="StaticBody"]
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.282032, 0 )
+shape = SubResource( 1 )
+
+[node name="Pivot" type="Spatial" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="Pivot"]
+mesh = ExtResource( 1 )
+skin = SubResource( 2 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="VisibilityNotifier" type="VisibilityNotifier" parent="."]
+aabb = AABB( -1.34147, -3.60919, -1.30468, 2.68294, 7.21839, 2.60936 )
+
+[connection signal="screen_exited" from="VisibilityNotifier" to="." method="_on_VisibilityNotifier_screen_exited"]
